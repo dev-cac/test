@@ -11,7 +11,10 @@ const header = `
 `
 
 const options = {
-    header: { contents: header },
+    header: {
+        height: "32mm",
+        contents: header,
+    },
     format: 'A4',
     border: {
         top: '0',

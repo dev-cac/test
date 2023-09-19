@@ -54,6 +54,13 @@
       padding-bottom: 1rem;
     }
 
+    .flex-container-title {
+      margin: auto;
+      display:table;
+      page-break-inside: avoid;
+      width: 100%;
+    }
+
     .flex-container div:nth-child(1) {
       width: 20%;
     }
@@ -94,6 +101,13 @@
       border-bottom: 1px solid black;
     }
 
+    .flex-item-description {
+      width: 100% !important;
+      max-height: 4rem;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
     .flex-item img {
       max-width: 80%;
       max-height: 80%;
@@ -108,7 +122,8 @@
       font-size: 1.2rem;
       vertical-align: center;
       text-align: center;
-      font-weight: 900
+      font-weight: 900;
+      margin-bottom: 1rem;
     }
   </style>
 
@@ -119,7 +134,7 @@
     <img src="https://storage.googleapis.com/storage-pulqui-mkp/logo/logo.png"/>
   </div>
 
-  <div class="flex-container">
+  <div class="flex-container-title">
     <div class="flex-item-title">
       Imagen
     </div>
@@ -159,7 +174,13 @@ Talla: 37-46
       Constructor Store
     </div>
     <div class="flex-item">
-      Botín francés confeccionado en cuero box, suela PU monodensidad inyectado directamente al corte, íntegramente forrado en pique absorbente. Posee plantilla confort en EVA 3 mm. Un calzado de alta rotación, para todo tipo de trabajos.
+      <div class="flex-item-description">
+        Botín francés confeccionado en cuero box, suela PU monodensidad inyectado directamente al corte, íntegramente forrado en pique absorbente. Posee plantilla confort en EVA 3 mm. Un calzado de alta rotación, para todo tipo de trabajos.
+
+        Botín francés confeccionado en cuero box, suela PU monodensidad inyectado directamente al corte, íntegramente forrado en pique absorbente. Posee plantilla confort en EVA 3 mm. Un calzado de alta rotación, para todo tipo de trabajos.
+
+        Botín francés confeccionado en cuero box, suela PU monodensidad inyectado directamente al corte, íntegramente forrado en pique absorbente. Posee plantilla confort en EVA 3 mm. Un calzado de alta rotación, para todo tipo de trabajos.
+      </div>
     </div>
     <div class="flex-item">
       $ 10648 +iva
