@@ -12,7 +12,7 @@ const header = `
 
 const options = {
     header: {
-        height: "32mm",
+        height: "26mm",
         contents: header,
     },
     format: 'A4',
