@@ -15,7 +15,18 @@ const options = {
         height: "26mm",
         contents: header,
     },
+    footer: {
+        height: '10mm',
+        contents: {
+            default: `
+                <div class="page-number">
+                    {{page}}
+                </div>
+            `,
+        },
+    },
     format: 'A4',
+    paginationOffset: 1,
     border: {
         top: '0',
         right: '10px',
@@ -25,6 +36,6 @@ const options = {
 }
 
 const content = template.replace("$$bodyRow$$", '<h1>Hola Mundo :D</h1>');
-pdf.create(content, options).toFile('./pdfs/result.pdf', (e) => {
-    console.log(e)
+pdf.create(content, options).toFile('./pdfs/result.pdf', (e, res) => {
+    console.log(res)
 })
