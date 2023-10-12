@@ -40,16 +40,48 @@ class _CounterPageState extends State<CounterPage> {
         )
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.endTop,
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          setState(() {
-            _conteo++;
-          });
-        },
-        child: const Icon(Icons.add),
-        splashColor: Colors.amber,
-        backgroundColor: Colors.blueGrey,
-      ),
+      floatingActionButton: _createButtons()
+    );
+  }
+
+  Widget _createButtons() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.end,
+      children: [
+        SizedBox(width: 30),
+        FloatingActionButton(
+            onPressed: () {
+              setState(() {
+                _conteo = 0;
+              });
+            },
+            child: const Icon(Icons.exposure_zero),
+            splashColor: Colors.amber,
+            backgroundColor: Colors.blueGrey,
+        ),
+        Expanded(child: SizedBox()),
+        FloatingActionButton(
+            onPressed: () {
+              setState(() {
+                _conteo--;
+              });
+            },
+            child: const Icon(Icons.remove),
+            splashColor: Colors.amber,
+            backgroundColor: Colors.blueGrey,
+        ),
+        SizedBox(width: 10),
+        FloatingActionButton(
+            onPressed: () {
+              setState(() {
+                _conteo++;
+              });
+            },
+            child: const Icon(Icons.add),
+            splashColor: Colors.amber,
+            backgroundColor: Colors.blueGrey,
+        )
+      ],
     );
   }
 }
