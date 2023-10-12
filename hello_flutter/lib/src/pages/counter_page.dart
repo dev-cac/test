@@ -48,40 +48,43 @@ class _CounterPageState extends State<CounterPage> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
-        SizedBox(width: 30),
+        const SizedBox(width: 30),
         FloatingActionButton(
-            onPressed: () {
-              setState(() {
-                _conteo = 0;
-              });
-            },
+            onPressed: _reset,
+            splashColor: Colors.amber,
+            backgroundColor: Colors.blueGrey,
             child: const Icon(Icons.exposure_zero),
+        ),
+        const Expanded(child: SizedBox()),
+        FloatingActionButton(
+            onPressed: _restar,
             splashColor: Colors.amber,
             backgroundColor: Colors.blueGrey,
-        ),
-        Expanded(child: SizedBox()),
-        FloatingActionButton(
-            onPressed: () {
-              setState(() {
-                _conteo--;
-              });
-            },
             child: const Icon(Icons.remove),
-            splashColor: Colors.amber,
-            backgroundColor: Colors.blueGrey,
         ),
-        SizedBox(width: 10),
+        const SizedBox(width: 10),
         FloatingActionButton(
-            onPressed: () {
-              setState(() {
-                _conteo++;
-              });
-            },
-            child: const Icon(Icons.add),
+            onPressed: _agregar,
             splashColor: Colors.amber,
             backgroundColor: Colors.blueGrey,
+            child: const Icon(Icons.add),
         )
       ],
     );
+  }
+
+  _agregar() {
+    _conteo++;
+    setState(() {});
+  }
+
+  _restar() {
+    _conteo--;
+    setState(() {});
+  }
+
+  _reset() {
+    _conteo = 0;
+    setState(() {});
   }
 }
