@@ -15,6 +15,11 @@
       "ruta": "card",
       "icon": "folder_open",
       "texto": "Cards"
+    },
+    {
+      "ruta": "animated",
+      "icon": "donut_large",
+      "texto": "Cuadro Animado"
     }
   ]
 }
