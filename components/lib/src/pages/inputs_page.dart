@@ -10,6 +10,9 @@ class InputPage extends StatefulWidget {
 class _InputPageState extends State<InputPage> {
   String _name = '';
   String _email = '';
+  String _fecha = '';
+
+  TextEditingController _inputFieldDate = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +24,12 @@ class _InputPageState extends State<InputPage> {
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
         children: <Widget>[
           _createInput(),
+          const Divider(),
           _createInputEmail(),
+          const Divider(),
+          _createInputPwd(),
+          const Divider(),
+          _createDate(context),
           const Divider(),
           _createPerson()
         ],
@@ -68,10 +76,63 @@ class _InputPageState extends State<InputPage> {
     );
   }
 
+  Widget _createInputPwd() {
+    return TextField(
+      obscureText: true,
+      decoration: InputDecoration(
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(20.0)
+        ),
+        hintText: 'Ingrese Contraseña',
+        labelText: 'Password',
+        suffixIcon: const Icon(Icons.lock_open),
+        icon: const Icon(Icons.lock)
+      ),
+      onChanged: (value) => setState(() { _email = value; }),
+    );
+  }
+
+  Widget _createDate( BuildContext context) {
+    return TextField(
+      enableInteractiveSelection: false,
+      controller: _inputFieldDate,
+      decoration: InputDecoration(
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(20.0)
+        ),
+        hintText: 'Fecha de Nacimiento',
+        labelText: 'Fecha',
+        suffixIcon: const Icon(Icons.calendar_month_outlined),
+        icon: const Icon(Icons.calendar_today)
+      ),
+      onTap: () {
+        FocusScope.of(context).requestFocus(FocusNode());
+        _selectDate(context);
+      },
+    );
+  }
+
   Widget _createPerson() {
     return ListTile(
       title: Text('Nombre es: $_name'),
       subtitle: Text('Email: $_email'),
     );
+  }
+
+  void _selectDate(BuildContext context) async {
+    DateTime? picked = await showDatePicker(
+      context: context,
+      initialDate: DateTime.now(),
+      firstDate: DateTime(2018),
+      lastDate: DateTime(2025),
+      locale: const Locale('es', 'ES')
+    );
+
+    if (picked != null) {
+      setState(() {
+        _fecha = picked.toString();
+        _inputFieldDate.text = _fecha;
+      });
+    }
   }
 }
