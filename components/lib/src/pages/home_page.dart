@@ -1,7 +1,8 @@
-import 'package:components/src/utils/icon_util.dart';
 import 'package:flutter/material.dart';
 
 import 'package:components/src/providers/menu_provider.dart';
+import 'package:components/src/pages/alert_page.dart';
+import 'package:components/src/utils/icon_util.dart';
 
 class HomePage extends StatelessWidget {
   final List<String> opciones = const ['uno', 'dos', 'tres', 'cuatro', 'cinco'];
@@ -25,13 +26,13 @@ class HomePage extends StatelessWidget {
       initialData: const [],
       builder: (BuildContext context, AsyncSnapshot<List<dynamic>> snapshot) {
         return ListView(
-          children: _listItems(snapshot.data),
+          children: _listItems(snapshot.data, context),
         );
       },
     );
   }
 
-  List<Widget> _listItems(List<dynamic>? data) {
+  List<Widget> _listItems(List<dynamic>? data, BuildContext context) {
     final List<Widget> opciones = [];
 
     data?.forEach((elm) {
@@ -39,7 +40,10 @@ class HomePage extends StatelessWidget {
         title: Text(elm['texto']),
         leading: getIcon(elm['icon']),
         trailing: const Icon(Icons.keyboard_arrow_right, color: Colors.blue),
-        onTap: () {}
+        onTap: () {
+          final route = MaterialPageRoute(builder: (context) => const AlertPage());
+          Navigator.push(context, route);
+        }
       );
 
       opciones
