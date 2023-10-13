@@ -13,7 +13,28 @@ class CardPage extends StatelessWidget {
         padding: const EdgeInsets.all(15),
         children: <Widget>[
           _cardType1(),
-          const SizedBox(height: 30),
+          const SizedBox(height: 20),
+          _cardType2(),
+          _cardType1(),
+          const SizedBox(height: 20),
+          _cardType2(),
+          _cardType1(),
+          const SizedBox(height: 20),
+          _cardType2(),
+          _cardType1(),
+          const SizedBox(height: 20),
+          _cardType2(),
+          _cardType1(),
+          const SizedBox(height: 20),
+          _cardType2(),
+          _cardType1(),
+          const SizedBox(height: 20),
+          _cardType2(),
+          _cardType1(),
+          const SizedBox(height: 20),
+          _cardType2(),
+          _cardType1(),
+          const SizedBox(height: 20),
           _cardType2(),
         ],
       )
@@ -22,6 +43,8 @@ class CardPage extends StatelessWidget {
 
   Widget _cardType1() {
     return Card(
+      elevation: 4,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
       child: Column(
         children: <Widget>[
           const ListTile(
@@ -49,6 +72,9 @@ class CardPage extends StatelessWidget {
 
   Widget _cardType2() {
     return Card(
+      elevation: 4,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+      clipBehavior: Clip.antiAlias,
       child: Column(
         children: <Widget>[
           const FadeInImage(
