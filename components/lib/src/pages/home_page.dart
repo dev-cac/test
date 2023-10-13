@@ -41,8 +41,7 @@ class HomePage extends StatelessWidget {
         leading: getIcon(elm['icon']),
         trailing: const Icon(Icons.keyboard_arrow_right, color: Colors.blue),
         onTap: () {
-          final route = MaterialPageRoute(builder: (context) => const AlertPage());
-          Navigator.push(context, route);
+          Navigator.pushNamed(context, elm['ruta']);
         }
       );
 
