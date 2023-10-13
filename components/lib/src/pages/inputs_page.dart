@@ -9,6 +9,7 @@ class InputPage extends StatefulWidget {
 
 class _InputPageState extends State<InputPage> {
   String _name = '';
+  String _email = '';
 
   @override
   Widget build(BuildContext context) {
@@ -20,6 +21,7 @@ class _InputPageState extends State<InputPage> {
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
         children: <Widget>[
           _createInput(),
+          _createInputEmail(),
           const Divider(),
           _createPerson()
         ],
@@ -29,7 +31,7 @@ class _InputPageState extends State<InputPage> {
 
   Widget _createInput() {
     return TextField(
-      autofocus: true,
+      autofocus: false,
       textCapitalization: TextCapitalization.sentences,
       decoration: InputDecoration(
         border: OutlineInputBorder(
@@ -39,8 +41,8 @@ class _InputPageState extends State<InputPage> {
         hintText: 'Ingrese Nombre',
         labelText: 'Nombre',
         helperText: 'Solo es el nombre',
-        suffixIcon: Icon(Icons.accessibility_new),
-        icon: Icon(Icons.account_circle)
+        suffixIcon: const Icon(Icons.accessibility_new),
+        icon: const Icon(Icons.account_circle)
       ),
       onChanged: (value) {
         _name = value;
@@ -49,9 +51,27 @@ class _InputPageState extends State<InputPage> {
     );
   }
 
+  Widget _createInputEmail() {
+    return TextField(
+      autofocus: false,
+      keyboardType: TextInputType.emailAddress,
+      decoration: InputDecoration(
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(20.0)
+        ),
+        hintText: 'Ingrese Email',
+        labelText: 'Email',
+        suffixIcon: const Icon(Icons.alternate_email),
+        icon: const Icon(Icons.email)
+      ),
+      onChanged: (value) => setState(() { _email = value; }),
+    );
+  }
+
   Widget _createPerson() {
     return ListTile(
       title: Text('Nombre es: $_name'),
+      subtitle: Text('Email: $_email'),
     );
   }
 }
