@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:async';
 
 class ListViewPage extends StatefulWidget {
   const ListViewPage({super.key});
@@ -8,7 +9,30 @@ class ListViewPage extends StatefulWidget {
 }
 
 class _ListViewPageState extends State<ListViewPage> {
-  List<int> _listNumbs = [0, 2, 3, 4, 5];
+  ScrollController _scrollController = ScrollController();
+
+  List<int> _listNumbs = [];
+  int _lastItem = 0;
+  bool _isLoading = false;
+
+  @override
+  void initState() {
+    super.initState();
+
+    _addTenItems();
+    _scrollController.addListener(() {
+
+      if(_scrollController.position.pixels == _scrollController.position.maxScrollExtent) {
+        fetchData();
+      }
+    });
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _scrollController.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -16,13 +40,19 @@ class _ListViewPageState extends State<ListViewPage> {
       appBar: AppBar(
         title: const Text('Listas'),
       ),
-      body: _createList(),
+      body: Stack(
+        children: [
+          _createList(),
+          _createLoading()
+        ],
+      ),
     );
   }
 
   Widget _createList() {
     return ListView.builder(
       itemCount: _listNumbs.length,
+      controller: _scrollController,
       itemBuilder: (context, index) {
         final image = _listNumbs[index];
 
@@ -35,5 +65,52 @@ class _ListViewPageState extends State<ListViewPage> {
         );
       },
     );
+  }
+
+  void _addTenItems() {
+    for (var i = 1; i <= 10; i++) {
+      _lastItem++;
+      _listNumbs.add(_lastItem);
+
+      setState(() {});
+    }
+  }
+
+  Timer fetchData() {
+    _isLoading = true;
+    setState(() {});
+
+    const duration = Duration(seconds: 2);
+    return Timer(duration, respuestaHttp);
+  }
+
+  void respuestaHttp() {
+    _isLoading = false;
+    _scrollController.animateTo(
+      _scrollController.position.pixels + 150,
+      curve: Curves.fastOutSlowIn,
+      duration: const Duration(milliseconds: 250)
+    );
+    _addTenItems();
+  }
+
+  Widget _createLoading() {
+    if (_isLoading) {
+      return const Column(
+        mainAxisSize: MainAxisSize.max,
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+           Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              CircularProgressIndicator()
+            ],
+           ),
+           SizedBox(height: 20)
+        ],
+      );
+    } else {
+      return Container();
+    }
   }
 }
