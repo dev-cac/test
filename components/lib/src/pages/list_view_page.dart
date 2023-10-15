@@ -50,20 +50,23 @@ class _ListViewPageState extends State<ListViewPage> {
   }
 
   Widget _createList() {
-    return ListView.builder(
-      itemCount: _listNumbs.length,
-      controller: _scrollController,
-      itemBuilder: (context, index) {
-        final image = _listNumbs[index];
+    return RefreshIndicator(
+      onRefresh: getPage1,
+      child: ListView.builder(
+        itemCount: _listNumbs.length,
+        controller: _scrollController,
+        itemBuilder: (context, index) {
+          final image = _listNumbs[index];
 
-        return FadeInImage(
-          image: NetworkImage('https://picsum.photos/seed/$image/500/300'),
-          placeholder: const AssetImage('assets/jar-loading.gif'),
-          fadeInDuration: const Duration(milliseconds: 200),
-          height: 290,
-          fit: BoxFit.cover,
-        );
-      },
+          return FadeInImage(
+            image: NetworkImage('https://picsum.photos/seed/$image/500/300'),
+            placeholder: const AssetImage('assets/jar-loading.gif'),
+            fadeInDuration: const Duration(milliseconds: 200),
+            height: 290,
+            fit: BoxFit.cover,
+          );
+        },
+      ),
     );
   }
 
@@ -92,6 +95,18 @@ class _ListViewPageState extends State<ListViewPage> {
       duration: const Duration(milliseconds: 250)
     );
     _addTenItems();
+  }
+
+  Future<void> getPage1() async {
+    const duration = Duration(seconds: 2);
+
+    Timer(duration, () {
+      _listNumbs.clear();
+      _lastItem++;
+      _addTenItems();
+    });
+
+    return Future.delayed(duration);
   }
 
   Widget _createLoading() {
