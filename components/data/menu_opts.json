@@ -35,6 +35,11 @@
       "ruta": "list",
       "icon": "list",
       "texto": "Listas"
+    },
+    {
+      "ruta": "camera",
+      "icon": "camera",
+      "texto": "Cámara"
     }
   ]
 }

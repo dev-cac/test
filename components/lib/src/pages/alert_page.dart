@@ -22,7 +22,7 @@ class AlertPage extends StatelessWidget {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        child: const Icon(Icons.ac_unit_rounded),
+        child: const Icon(Icons.keyboard_arrow_left),
         onPressed: () {
           Navigator.pop(context);
         },

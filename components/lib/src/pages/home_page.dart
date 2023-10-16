@@ -13,6 +13,7 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Componentes'),
+        centerTitle: true,
       ),
       body: _lista()
     );
