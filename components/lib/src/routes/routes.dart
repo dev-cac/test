@@ -9,6 +9,7 @@ import 'package:components/src/pages/inputs_page.dart';
 import 'package:components/src/pages/slider_page.dart';
 import 'package:components/src/pages/list_view_page.dart';
 import 'package:components/src/pages/camera_screen.dart';
+import 'package:components/src/pages/bands_app.dart';
 
 Map<String, WidgetBuilder> getApplicationRoutes() {
   return <String, WidgetBuilder>{
@@ -21,5 +22,6 @@ Map<String, WidgetBuilder> getApplicationRoutes() {
     'slider': (BuildContext context) => const SliderPage(),
     'list': (BuildContext context) => const ListViewPage(),
     'camera': (BuildContext context) => const CameraScreenPage(),
+    'bands': (BuildContext context) => const BandsName(),
   };
 }

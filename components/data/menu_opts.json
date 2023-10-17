@@ -40,6 +40,11 @@
       "ruta": "camera",
       "icon": "camera",
       "texto": "Cámara"
+    },
+    {
+      "ruta": "bands",
+      "icon": "piano",
+      "texto": "Band Name"
     }
   ]
 }
