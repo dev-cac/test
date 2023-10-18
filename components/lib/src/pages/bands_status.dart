@@ -25,7 +25,7 @@ class BandsStatus extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.add_circle_rounded),
         onPressed: () {
-           socketService.socket.emit('nuevo-mensaje', {
+           socketService.emit('nuevo-mensaje', {
             'nombre': 'Flutter',
             'mensaje': 'Hola desde flutter'
            });

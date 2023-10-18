@@ -23,7 +23,7 @@ Map<String, WidgetBuilder> getApplicationRoutes() {
     'slider': (_) => const SliderPage(),
     'list': (_) => const ListViewPage(),
     'camera': (_) => const CameraScreenPage(),
-    'bands': (_) => const BandsStatus(),
+    'bands': (_) => const BandsName(),
     'bands_status': (_) => const BandsStatus(),
   };
 }
