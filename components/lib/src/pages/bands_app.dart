@@ -33,9 +33,8 @@ class _BandsNameState extends State<BandsName> {
 
   @override
   void dispose() {
-    final socketService = Provider.of<SocketService>(context, listen: false);
-    socketService.socket.off('active-bands');
-
+    /* final socketService = Provider.of<SocketService>(context, listen: false);
+    socketService.socket.off('active-bands'); */
     super.dispose();
   }
 
@@ -68,12 +67,13 @@ class _BandsNameState extends State<BandsName> {
   }
 
   Dismissible _bandTile(Band band) {
+    final socketService = Provider.of<SocketService>(context, listen: false);
+
     return Dismissible(
       key: Key(band.id),
       direction: DismissDirection.startToEnd,
       onDismissed: (direction) {
-        print('direction: $direction');
-        print('id: ${band.id}');
+        socketService.emit('delete-band', { 'id': band.id });
       },
       background: Container(
         padding: const EdgeInsets.only(left: 10),
@@ -90,7 +90,9 @@ class _BandsNameState extends State<BandsName> {
         ),
         title: Text(band.name),
         trailing: Text('${band.votes}', style: const TextStyle(fontSize: 19)),
-        onTap: () {},
+        onTap: () {
+          socketService.emit('vote-band', { 'id': band.id });
+        },
       ),
     );
   }
@@ -141,8 +143,8 @@ class _BandsNameState extends State<BandsName> {
 
   void addBandToList(String name) {
     if (name.length > 1) {
-      bands.add(Band(id: DateTime.now().toString(), name: name));
-      setState(() {});
+      final socketService = Provider.of<SocketService>(context, listen: false);
+      socketService.emit('add-band', { 'name': name });
     }
 
     Navigator.pop(context);
