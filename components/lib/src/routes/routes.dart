@@ -1,3 +1,4 @@
+import 'package:components/src/pages/bands_status.dart';
 import 'package:flutter/material.dart';
 
 import 'package:components/src/pages/home_page.dart';
@@ -13,15 +14,16 @@ import 'package:components/src/pages/bands_app.dart';
 
 Map<String, WidgetBuilder> getApplicationRoutes() {
   return <String, WidgetBuilder>{
-    '/': (BuildContext context) => const HomePage(),
-    'alert': (BuildContext context) => const AlertPage(),
-    'avatar': (BuildContext context) => const AvatarPage(),
-    'card': (BuildContext context) => const CardPage(),
-    'animated': (BuildContext context) => const AnimatedPage(),
-    'inputs': (BuildContext context) => const InputPage(),
-    'slider': (BuildContext context) => const SliderPage(),
-    'list': (BuildContext context) => const ListViewPage(),
-    'camera': (BuildContext context) => const CameraScreenPage(),
-    'bands': (BuildContext context) => const BandsName(),
+    '/': (_) => const HomePage(),
+    'alert': (_) => const AlertPage(),
+    'avatar': (_) => const AvatarPage(),
+    'card': (_) => const CardPage(),
+    'animated': (_) => const AnimatedPage(),
+    'inputs': (_) => const InputPage(),
+    'slider': (_) => const SliderPage(),
+    'list': (_) => const ListViewPage(),
+    'camera': (_) => const CameraScreenPage(),
+    'bands': (_) => const BandsStatus(),
+    'bands_status': (_) => const BandsStatus(),
   };
 }

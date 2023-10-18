@@ -4,7 +4,7 @@ import 'package:components/src/providers/menu_provider.dart';
 import 'package:components/src/utils/icon_util.dart';
 
 class HomePage extends StatelessWidget {
-  final List<String> opciones = const ['uno', 'dos', 'tres', 'cuatro', 'cinco'];
+  final List<String> opciones = const [];
 
   const HomePage({super.key});
 
