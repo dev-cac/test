@@ -12,6 +12,7 @@ class SocketService with ChangeNotifier {
   late IO.Socket _socket;
 
   ServerStatus get serverStatus => _serverStatus;
+  IO.Socket get socket => _socket;
 
   SocketService() {
     _initConfig();
@@ -47,10 +48,10 @@ class SocketService with ChangeNotifier {
         notifyListeners();
       });
 
-      _socket.on('nuevo-mensaje', (payload) {
+      /* _socket.on('nuevo-mensaje', (payload) {
         print('Nombre: ${payload['nombre']}');
         print('Mensaje: ${payload['mensaje']}');
-      });
+      }); */
     } catch (e) {
       _serverStatus = ServerStatus.Offline;
       notifyListeners();

@@ -21,6 +21,15 @@ class BandsStatus extends StatelessWidget {
             Text('ServerStatus: ${socketService.serverStatus}')
           ],
         )
+      ),
+      floatingActionButton: FloatingActionButton(
+        child: const Icon(Icons.add_circle_rounded),
+        onPressed: () {
+           socketService.socket.emit('nuevo-mensaje', {
+            'nombre': 'Flutter',
+            'mensaje': 'Hola desde flutter'
+           });
+        },
       )
     );
   }
