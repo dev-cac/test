@@ -37,6 +37,11 @@
       "texto": "Listas"
     },
     {
+      "ruta": "pelis",
+      "icon": "movie_outlined",
+      "texto": "Películas"
+    },
+    {
       "ruta": "camera",
       "icon": "camera",
       "texto": "Cámara"

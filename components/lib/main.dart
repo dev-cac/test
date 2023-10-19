@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:components/src/routes/routes.dart';
-import 'package:components/src/pages/alert_page.dart';
+import 'package:components/src/pages/components/alert_page.dart';
 import 'package:provider/provider.dart';
 
 import 'package:components/src/services/socket_service.dart';

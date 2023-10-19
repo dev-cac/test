@@ -10,6 +10,7 @@ final _icons = <String, IconData>{
   'list': Icons.list,
   'camera': Icons.camera,
   'piano': Icons.piano,
+  'movie_outlined': Icons.movie_outlined,
 };
 
 Icon getIcon(String name) {
