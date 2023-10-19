@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'package:components/src/widgets/movie_slider.dart';
 import 'package:components/src/widgets/card_swiper.dart';
 
 class MoviePage extends StatefulWidget {
@@ -23,10 +24,15 @@ class _MoviePageState extends State<MoviePage> {
             )
           ],
         ),
-        body: const Column(
-          children: [
-            CardSwiper()
-          ]
+        body: const SingleChildScrollView(
+          child: Column(
+            children: [
+              CardSwiper(),
+              MovieSlider(),
+              MovieSlider(),
+              MovieSlider()
+            ]
+          ),
         )
     );
   }
