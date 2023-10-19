@@ -28,8 +28,6 @@ class _MoviePageState extends State<MoviePage> {
           child: Column(
             children: [
               CardSwiper(),
-              MovieSlider(),
-              MovieSlider(),
               MovieSlider()
             ]
           ),
