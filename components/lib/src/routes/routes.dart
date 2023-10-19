@@ -1,16 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:components/src/pages/home_page.dart';
-import 'package:components/src/pages/components/alert_page.dart';
-import 'package:components/src/pages/components/avatar_page.dart';
-import 'package:components/src/pages/components/card_page.dart';
-import 'package:components/src/pages/components/animated_page.dart';
-import 'package:components/src/pages/components/inputs_page.dart';
-import 'package:components/src/pages/components/slider_page.dart';
-import 'package:components/src/pages/components/list_view_page.dart';
-import 'package:components/src/pages/components/camera_screen.dart';
-import 'package:components/src/pages/band/bands_app.dart';
-import 'package:components/src/pages/movies/movie_page.dart';
+import 'package:components/src/pages/pages.dart';
 
 Map<String, WidgetBuilder> getApplicationRoutes() {
   return <String, WidgetBuilder>{
@@ -25,5 +15,6 @@ Map<String, WidgetBuilder> getApplicationRoutes() {
     'camera': (_) => const CameraScreenPage(),
     'bands': (_) => const BandsName(),
     'pelis': (_) => const MoviePage(),
+    'pelis_details': (_) => const DetailsScreen(),
   };
 }

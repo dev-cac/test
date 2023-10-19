@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:components/src/widgets/card_swiper.dart';
+
 class MoviePage extends StatefulWidget {
   const MoviePage({super.key});
 
@@ -10,6 +12,22 @@ class MoviePage extends StatefulWidget {
 class _MoviePageState extends State<MoviePage> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+        appBar: AppBar(
+          title: const Text('Películas en Cine'),
+          elevation: 0,
+          actions: [
+            IconButton(
+              icon: const Icon(Icons.search_outlined),
+              onPressed: () {},
+            )
+          ],
+        ),
+        body: const Column(
+          children: [
+            CardSwiper()
+          ]
+        )
+    );
   }
 }

@@ -35,6 +35,11 @@ class MyApp extends StatelessWidget {
         onGenerateRoute: (RouteSettings settings) {
           return MaterialPageRoute(builder: (BuildContext context) => const AlertPage());
         },
+        theme: ThemeData.light().copyWith(
+          appBarTheme: const AppBarTheme(
+            color: Colors.blueGrey
+          )
+        )
       ),
     );
   }

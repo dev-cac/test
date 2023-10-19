@@ -1,0 +1,12 @@
+export 'package:components/src/pages/home_page.dart';
+export 'package:components/src/pages/components/alert_page.dart';
+export 'package:components/src/pages/components/avatar_page.dart';
+export 'package:components/src/pages/components/card_page.dart';
+export 'package:components/src/pages/components/animated_page.dart';
+export 'package:components/src/pages/components/inputs_page.dart';
+export 'package:components/src/pages/components/slider_page.dart';
+export 'package:components/src/pages/components/list_view_page.dart';
+export 'package:components/src/pages/components/camera_screen.dart';
+export 'package:components/src/pages/band/bands_app.dart';
+export 'package:components/src/pages/movies/movie_page.dart';
+export 'package:components/src/pages/movies/movie_details.dart';
