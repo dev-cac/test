@@ -59,6 +59,7 @@ class SocketService with ChangeNotifier {
     }
   }
 
+  @override
   void dispose() {
     _socket.disconnect();
     super.dispose();
