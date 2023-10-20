@@ -7,7 +7,7 @@ import 'package:provider/provider.dart';
 import 'package:components/src/providers/movies_provider.dart';
 import 'package:components/src/routes/routes.dart';
 import 'package:components/src/pages/components/alert_page.dart';
-import 'package:components/src/services/socket_service.dart';
+import 'package:components/src/providers/socket_provider.dart';
 
 void main() async {
   await dotenv.load(fileName: ".env");
@@ -22,7 +22,7 @@ class AppState extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => MoviesProvider(), lazy: false),
-        ChangeNotifierProvider(create: (_) => SocketService())
+        ChangeNotifierProvider(create: (_) => SocketProvider())
       ],
       child: const MyApp(),
     );

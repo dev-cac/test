@@ -5,7 +5,7 @@ import 'package:http/http.dart' as http;
 
 class MoviesProvider extends ChangeNotifier {
   final String _baseUrl = 'api.themoviedb.org';
-  String _apiKey = '';
+  final String _apiKey = dotenv.env['API_MOVIEDB'] ?? '';
   final String _language = 'es-ES';
 
   MoviesProvider() {
@@ -13,8 +13,6 @@ class MoviesProvider extends ChangeNotifier {
   }
 
   getOnDisplayMovies() async {
-    _apiKey = dotenv.env['API_MOVIEDB'] ?? '';
-
     var url = Uri.https(_baseUrl, '/3/movie/now_playing', {
       'language': _language,
       'api_key': _apiKey,

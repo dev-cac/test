@@ -7,7 +7,7 @@ import 'package:provider/provider.dart';
 
 import 'package:pie_chart/pie_chart.dart';
 
-import 'package:components/src/services/socket_service.dart';
+import 'package:components/src/providers/socket_provider.dart';
 
 class BandsName extends StatefulWidget {
   const BandsName({super.key});
@@ -17,12 +17,12 @@ class BandsName extends StatefulWidget {
 }
 
 class _BandsNameState extends State<BandsName> {
-  SocketService? _socketService;
+  SocketProvider? _socketService;
   List<Band> bands = [];
 
   @override
   void initState() {
-    _socketService = Provider.of<SocketService>(context, listen: false);
+    _socketService = Provider.of<SocketProvider>(context, listen: false);
     _socketService?.socket.on('active-bands', (payload) {
       _handleActiveBands(payload);
     });
@@ -39,7 +39,7 @@ class _BandsNameState extends State<BandsName> {
 
   @override
   Widget build(BuildContext context) {
-    final socketService = Provider.of<SocketService>(context);
+    final socketService = Provider.of<SocketProvider>(context);
 
     return Scaffold(
       appBar: AppBar(
@@ -73,7 +73,7 @@ class _BandsNameState extends State<BandsName> {
   }
 
   Dismissible _bandTile(Band band) {
-    final socketService = Provider.of<SocketService>(context, listen: false);
+    final socketService = Provider.of<SocketProvider>(context, listen: false);
 
     return Dismissible(
       key: Key(band.id),
@@ -147,7 +147,7 @@ class _BandsNameState extends State<BandsName> {
 
   void addBandToList(String name) {
     if (name.length > 1) {
-      final socketService = Provider.of<SocketService>(context, listen: false);
+      final socketService = Provider.of<SocketProvider>(context, listen: false);
       socketService.emit('add-band', { 'name': name });
     }
 

@@ -58,7 +58,6 @@ class _CustomAppBar extends StatelessWidget {
   }
 }
 
-
 class _PosterAndTitle extends StatelessWidget {
   const _PosterAndTitle();
 

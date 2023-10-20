@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'package:components/src/services/socket_service.dart';
+import 'package:components/src/providers/socket_provider.dart';
 
 class BandsStatus extends StatelessWidget {
   const BandsStatus({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final socketService = Provider.of<SocketService>(context);
+    final socketService = Provider.of<SocketProvider>(context);
 
     return Scaffold(
       appBar: AppBar(

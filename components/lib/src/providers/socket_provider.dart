@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:socket_io_client/socket_io_client.dart' as IO;
 
 enum ServerStatus {
@@ -7,7 +8,7 @@ enum ServerStatus {
   Connecting,
 }
 
-class SocketService with ChangeNotifier {
+class SocketProvider with ChangeNotifier {
   ServerStatus _serverStatus = ServerStatus.Connecting;
   late IO.Socket _socket;
 
@@ -15,18 +16,18 @@ class SocketService with ChangeNotifier {
   IO.Socket get socket => _socket;
   Function get emit => _socket.emit;
 
-  SocketService() {
+  SocketProvider() {
     _initConfig();
   }
 
   void _initConfig() {
     try {
       _socket = IO.io(
-        'http://127.0.0.1:3000',
-          IO.OptionBuilder()
-          .setTransports(['websocket'])
-          .enableAutoConnect()
-          .build(),
+        dotenv.env['SOCKET_SERVER'],
+        IO.OptionBuilder()
+        .setTransports(['websocket'])
+        .enableAutoConnect()
+        .build(),
       );
 
       _socket.onConnect((_) {
