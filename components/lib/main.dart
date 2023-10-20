@@ -1,14 +1,18 @@
-import 'package:components/src/providers/movies_provider.dart';
 import 'package:flutter/material.dart';
-
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:components/src/routes/routes.dart';
-import 'package:components/src/pages/components/alert_page.dart';
+
 import 'package:provider/provider.dart';
 
+import 'package:components/src/providers/movies_provider.dart';
+import 'package:components/src/routes/routes.dart';
+import 'package:components/src/pages/components/alert_page.dart';
 import 'package:components/src/services/socket_service.dart';
 
-void main() => runApp(const AppState());
+void main() async {
+  await dotenv.load(fileName: ".env");
+  return runApp(const AppState());
+}
 
 class AppState extends StatelessWidget {
   const AppState({Key? key}) : super(key: key);

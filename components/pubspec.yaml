@@ -32,12 +32,13 @@ dependencies:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
-  cupertino_icons: ^1.0.2
+  flutter_dotenv: ^5.0.2
+  provider: ^6.0.5
   http: ^1.1.0
+  socket_io_client: ^2.0.3+1
+  cupertino_icons: ^1.0.2
   pie_chart: ^5.3.2
   camera: ^0.10.5+5
-  socket_io_client: ^2.0.3+1
-  provider: ^6.0.5
   card_swiper: ^3.0.1
 
 dev_dependencies:
@@ -67,6 +68,7 @@ flutter:
     - data/menu_opts.json
     - assets/
     - assets/images/
+    - .env
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
