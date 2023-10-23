@@ -4,6 +4,7 @@ import 'package:http/http.dart' as http;
 
 import 'package:components/src/models/movie.dart';
 import 'package:components/src/models/now_playing_response.dart';
+import 'package:components/src/models/credits_response.dart';
 import 'package:components/src/models/popular_response.dart';
 
 class MoviesProvider extends ChangeNotifier {
@@ -13,6 +14,7 @@ class MoviesProvider extends ChangeNotifier {
 
   List<Movie> onDisplayMovies = [];
   List<Movie> popularMovies = [];
+  Map<int, List<Cast>> castMovies = {};
 
   int _popularPage = 0;
 
@@ -49,5 +51,18 @@ class MoviesProvider extends ChangeNotifier {
     final data = PopularResponse.fromRawJson(res.body);
     popularMovies = [ ...popularMovies, ...data.results];
     notifyListeners();
+  }
+
+  Future <List<Cast>> getCastMovie(movieId) async {
+    if (castMovies.containsKey(movieId)) return castMovies[movieId]!;
+
+    var res = await httpGet(endpoint: '/3/movie/$movieId/credits', page: 1);
+    if (res.statusCode != 200) {
+      print('Error: get getPopularMovies');
+    }
+
+    final data = CreditResponse.fromRawJson(res.body);
+    castMovies[movieId] = data.cast;
+    return data.cast;
   }
 }
