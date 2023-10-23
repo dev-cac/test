@@ -6,6 +6,7 @@ import 'package:components/src/models/movie.dart';
 import 'package:components/src/models/now_playing_response.dart';
 import 'package:components/src/models/credits_response.dart';
 import 'package:components/src/models/popular_response.dart';
+import 'package:components/src/models/movies_response.dart';
 
 class MoviesProvider extends ChangeNotifier {
   final String _baseUrl = 'api.themoviedb.org';
@@ -24,7 +25,7 @@ class MoviesProvider extends ChangeNotifier {
   }
 
   httpGet({ String endpoint = '', int page = 1 }) async {
-    var url = Uri.https(_baseUrl, endpoint, {
+    final url = Uri.https(_baseUrl, endpoint, {
       'language': _language,
       'api_key': _apiKey,
       'page': '$page',
@@ -64,5 +65,21 @@ class MoviesProvider extends ChangeNotifier {
     final data = CreditResponse.fromRawJson(res.body);
     castMovies[movieId] = data.cast;
     return data.cast;
+  }
+
+  Future<List<Movie>> searchMovies(String query) async {
+    final url = Uri.https(_baseUrl, '3/search/movie', {
+      'language': _language,
+      'api_key': _apiKey,
+      'query': query
+    });
+
+    final res = await http.get(url);
+    if (res.statusCode != 200) {
+      print('Error: get getPopularMovies');
+    }
+
+    final data = MoviesResponse.fromRawJson(res.body);
+    return data.results;
   }
 }

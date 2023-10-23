@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import 'package:components/src/providers/movies_provider.dart';
 import 'package:components/src/widgets/movie_slider.dart';
 import 'package:components/src/widgets/card_swiper.dart';
-import 'package:provider/provider.dart';
+import 'package:components/src/search/movie_search.dart';
 
 class MoviePage extends StatefulWidget {
   const MoviePage({super.key});
@@ -24,7 +25,7 @@ class _MoviePageState extends State<MoviePage> {
           actions: [
             IconButton(
               icon: const Icon(Icons.search_outlined),
-              onPressed: () {},
+              onPressed: () => showSearch(context: context, delegate: MovieSearchDelegate()),
             )
           ],
         ),
