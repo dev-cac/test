@@ -32,7 +32,13 @@ class _MoviePageState extends State<MoviePage> {
           child: Column(
             children: [
               CardSwiper(movies: moviesProvider.onDisplayMovies),
-              MovieSlider(title: 'Populares', movies: moviesProvider.popularMovies)
+              MovieSlider(
+                title: 'Populares',
+                movies: moviesProvider.popularMovies,
+                onNextPage: () {
+                  moviesProvider.getPopularMovies();
+                },
+              )
             ]
           ),
         )

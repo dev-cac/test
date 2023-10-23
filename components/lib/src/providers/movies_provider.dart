@@ -14,23 +14,25 @@ class MoviesProvider extends ChangeNotifier {
   List<Movie> onDisplayMovies = [];
   List<Movie> popularMovies = [];
 
+  int _popularPage = 0;
+
   MoviesProvider() {
     getOnDisplayMovies();
     getPopularMovies();
   }
 
-  httpGet({ getUrl, page = '1' }) async {
-    var url = Uri.https(_baseUrl, getUrl, {
+  httpGet({ String endpoint = '', int page = 1 }) async {
+    var url = Uri.https(_baseUrl, endpoint, {
       'language': _language,
       'api_key': _apiKey,
-      'page': page,
+      'page': '$page',
     });
 
     return await http.get(url);
   }
 
   getOnDisplayMovies() async {
-    var res = await httpGet(getUrl: '/3/movie/now_playing');
+    var res = await httpGet(endpoint: '/3/movie/now_playing');
     if (res.statusCode != 200) return print('Error: get getOnDisplayMovies');
 
     final data = NowPlayingResponse.fromRawJson(res.body);
@@ -39,8 +41,10 @@ class MoviesProvider extends ChangeNotifier {
   }
 
   getPopularMovies() async  {
-    var res = await httpGet(getUrl: '/3/movie/popular');
-    if (res.statusCode != 200) return print('Error: get getOnDisplayMovies');
+    _popularPage++;
+
+    var res = await httpGet(endpoint: '/3/movie/popular', page: _popularPage);
+    if (res.statusCode != 200) return print('Error: get getPopularMovies');
 
     final data = PopularResponse.fromRawJson(res.body);
     popularMovies = [ ...popularMovies, ...data.results];
