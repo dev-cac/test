@@ -11,6 +11,8 @@ final _icons = <String, IconData>{
   'camera': Icons.camera,
   'piano': Icons.piano,
   'movie_outlined': Icons.movie_outlined,
+  'perm_data_setting': Icons.perm_data_setting,
+  'screen_lock_rotation_outlined': Icons.screen_lock_rotation_outlined,
 };
 
 Icon getIcon(String name) {

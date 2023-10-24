@@ -10,3 +10,5 @@ export 'package:components/src/pages/components/camera_screen.dart';
 export 'package:components/src/pages/band/bands_app.dart';
 export 'package:components/src/pages/movies/movie_page.dart';
 export 'package:components/src/pages/movies/movie_details.dart';
+export 'package:components/src/pages/designs/basic_design.dart';
+export 'package:components/src/pages/designs/scroll_design.dart';

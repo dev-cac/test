@@ -50,6 +50,16 @@
       "ruta": "bands",
       "icon": "piano",
       "texto": "Band Name"
+    },
+    {
+      "ruta": "basic_design",
+      "icon": "perm_data_setting",
+      "texto": "Diseño Básico"
+    },
+    {
+      "ruta": "scroll_design",
+      "icon": "screen_lock_rotation_outlined",
+      "texto": "Diseño Scroll"
     }
   ]
 }

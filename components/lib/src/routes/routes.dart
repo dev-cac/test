@@ -16,5 +16,7 @@ Map<String, WidgetBuilder> getApplicationRoutes() {
     'bands': (_) => const BandsName(),
     'pelis': (_) => const MoviePage(),
     'pelis_details': (_) => const DetailsScreen(),
+    'basic_design': (_) => const BasicDesign(),
+    'scroll_design': (_) => const ScrollDesign(),
   };
 }
