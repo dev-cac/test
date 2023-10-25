@@ -46,7 +46,7 @@
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
 	<key>NSCameraUsageDescription</key>
-	<string>your usage description here</string>
+	<string>Camera permission is required for barcode scanning.</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>your usage description here</string>
 </dict>

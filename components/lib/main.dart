@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-
-import 'package:provider/provider.dart';
 
 import 'package:components/src/providers/movies_provider.dart';
 import 'package:components/src/routes/routes.dart';
 import 'package:components/src/pages/components/alert_page.dart';
 import 'package:components/src/providers/socket_provider.dart';
+import 'package:components/src/providers/ui_provider.dart';
 
 void main() async {
   await dotenv.load(fileName: ".env");
@@ -23,7 +23,8 @@ class AppState extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => MoviesProvider(), lazy: false),
-        ChangeNotifierProvider(create: (_) => SocketProvider())
+        ChangeNotifierProvider(create: (_) => SocketProvider()),
+        ChangeNotifierProvider(create: (_) => UIProvider())
       ],
       child: const MyApp(),
     );
@@ -55,11 +56,16 @@ class MyApp extends StatelessWidget {
         return MaterialPageRoute(builder: (BuildContext context) => const AlertPage());
       },
       theme: ThemeData.dark().copyWith(
+        primaryColor: Colors.blueAccent,
+        floatingActionButtonTheme: const FloatingActionButtonThemeData(
+          backgroundColor: Colors.deepPurple,
+          foregroundColor: Colors.white
+        ),
         appBarTheme: const AppBarTheme(
-          color: Colors.blueGrey,
+          color: Color.fromARGB(255, 56, 40, 82),
           foregroundColor: Colors.white,
         ),
-        scaffoldBackgroundColor: Color.fromRGBO(25, 25, 25, 0.9),
+        scaffoldBackgroundColor: Color.fromRGBO(27, 26, 26, 0.961),
       )
     );
   }

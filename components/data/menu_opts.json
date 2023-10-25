@@ -65,6 +65,11 @@
       "ruta": "compose_design",
       "icon": "compost_outlined",
       "texto": "Diseño Compuesto"
+    },
+    {
+      "ruta": "qr",
+      "icon": "compost_outlined",
+      "texto": "QR Scan"
     }
   ]
 }

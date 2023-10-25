@@ -19,5 +19,6 @@ Map<String, WidgetBuilder> getApplicationRoutes() {
     'basic_design': (_) => const BasicDesign(),
     'scroll_design': (_) => const ScrollDesign(),
     'compose_design': (_) => const ComposeDesign(),
+    'qr': (_) => const QrHome(),
   };
 }
