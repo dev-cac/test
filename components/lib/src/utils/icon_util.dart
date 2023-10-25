@@ -13,6 +13,7 @@ final _icons = <String, IconData>{
   'movie_outlined': Icons.movie_outlined,
   'perm_data_setting': Icons.perm_data_setting,
   'screen_lock_rotation_outlined': Icons.screen_lock_rotation_outlined,
+  'compost_outlined': Icons.compost_outlined,
 };
 
 Icon getIcon(String name) {

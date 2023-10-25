@@ -60,6 +60,11 @@
       "ruta": "scroll_design",
       "icon": "screen_lock_rotation_outlined",
       "texto": "Diseño Scroll"
+    },
+    {
+      "ruta": "compose_design",
+      "icon": "compost_outlined",
+      "texto": "Diseño Compuesto"
     }
   ]
 }

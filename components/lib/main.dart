@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
@@ -34,6 +35,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.light);
+
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       localizationsDelegates: const [
@@ -51,10 +54,12 @@ class MyApp extends StatelessWidget {
       onGenerateRoute: (RouteSettings settings) {
         return MaterialPageRoute(builder: (BuildContext context) => const AlertPage());
       },
-      theme: ThemeData.light().copyWith(
+      theme: ThemeData.dark().copyWith(
         appBarTheme: const AppBarTheme(
-          color: Colors.blueGrey
-        )
+          color: Colors.blueGrey,
+          foregroundColor: Colors.white,
+        ),
+        scaffoldBackgroundColor: Color.fromRGBO(25, 25, 25, 0.9),
       )
     );
   }

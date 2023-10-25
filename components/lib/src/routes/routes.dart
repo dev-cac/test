@@ -18,5 +18,6 @@ Map<String, WidgetBuilder> getApplicationRoutes() {
     'pelis_details': (_) => const DetailsScreen(),
     'basic_design': (_) => const BasicDesign(),
     'scroll_design': (_) => const ScrollDesign(),
+    'compose_design': (_) => const ComposeDesign(),
   };
 }

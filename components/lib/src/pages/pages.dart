@@ -12,3 +12,4 @@ export 'package:components/src/pages/movies/movie_page.dart';
 export 'package:components/src/pages/movies/movie_details.dart';
 export 'package:components/src/pages/designs/basic_design.dart';
 export 'package:components/src/pages/designs/scroll_design.dart';
+export 'package:components/src/pages/designs/compose_design.dart';
