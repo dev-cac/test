@@ -30,6 +30,7 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/survey-angular/defaultV2.css",
               "src/styles.sass"
             ],
             "scripts": []
@@ -93,6 +94,7 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/survey-angular/defaultV2.css",
               "src/styles.sass"
             ],
             "scripts": []
