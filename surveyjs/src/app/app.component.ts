@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import * as Survey from 'survey-angular';
+import { Model, SurveyNG } from 'survey-angular';
 
 import surveyJson from './survey.json';
 
@@ -9,7 +9,7 @@ import surveyJson from './survey.json';
   styleUrls: ['./app.component.sass']
 })
 export class AppComponent implements OnInit {
-  survey: Survey.Model | undefined;
+  survey: Model | undefined;
   jsonSurvey: any;
 
   constructor() {}
@@ -21,10 +21,10 @@ export class AppComponent implements OnInit {
 
     this.jsonSurvey = surveyJson;
 
-    this.survey = new Survey.Model(this.jsonSurvey);
+    this.survey = new Model(this.jsonSurvey);
     this.survey.onComplete.add(this.onSurveyComplete);
 
-    Survey.SurveyNG.render("surveyElement", { model: this.survey });
+    SurveyNG.render("surveyElement", { model: this.survey });
   }
 
   onSurveyComplete = (result: { data: any; }) => {
