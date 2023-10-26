@@ -1,5 +1,6 @@
 .DS_Store
 pdfs
+*.env
 
 node_modules
 package-lock.json
