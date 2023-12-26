@@ -5,3 +5,7 @@ pdfs
 node_modules
 package-lock.json
 .angular
+
+dist
+output
+test.pdf
